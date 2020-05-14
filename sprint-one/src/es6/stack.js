@@ -25,7 +25,4 @@ class Stack {
   size() {
     return Object.keys(this.storage).length;
   }
-
-
-
-}
+}add
