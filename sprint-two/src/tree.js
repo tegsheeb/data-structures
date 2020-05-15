@@ -3,7 +3,7 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
-  newTree.children = [];  // fix me
+  newTree.children = []; // fix me
   _.extend(newTree, treeMethods);
   return newTree;
 };
@@ -25,17 +25,17 @@ treeMethods.contains = function(target) {
     // if so, return true
     return true;
   } else {
-    // if not, check if there is children
-      // if there is children , loop through children
-      // recurse on each child
-      for (var i = 0; i < this.children.length; i++) {
-        if (this.children[i].contains(target)) {
-          return true;
-        }
+  // if not, check if there is children
+    // if there is children , loop through children
+    // recurse on each child
+    for (var i = 0; i < this.children.length; i++) {
+      if (this.children[i].contains(target)) {
+        return true;
       }
     }
-    // return false (because we didn't find the target and should have already returned true)
-    return false;
+  }
+  // return false (because we didn't find the target and should have already returned true)
+  return false;
 };
 
 
