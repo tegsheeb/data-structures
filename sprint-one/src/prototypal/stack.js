@@ -3,8 +3,6 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   var newStack = Object.create(stackMethods);
   newStack.storage = {};
-
-
   return newStack;
 };
 
