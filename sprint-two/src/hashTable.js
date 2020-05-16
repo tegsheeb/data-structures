@@ -6,6 +6,7 @@ var HashTable = function() {
 };
 
 HashTable.prototype.insert = function(k, v) {
+  // Time Complexity: O(1)
   var index = getIndexBelowMaxForKey(k, this._limit);
   // note: storage = [undef, undef, [[],[]], undef]
   // note: k = input key (cat) , v = input value (fiesty)
@@ -38,6 +39,7 @@ HashTable.prototype.insert = function(k, v) {
 };
 
 HashTable.prototype.retrieve = function(k) {
+  // Time Complexity: O(1)
   var index = getIndexBelowMaxForKey(k, this._limit);
   // we need to go inside and iterate through array of arrays and check if index 0 of each tuple equals our target
   if (this._storage[index] !== undefined) {
@@ -55,6 +57,7 @@ HashTable.prototype.retrieve = function(k) {
 };
 
 HashTable.prototype.remove = function(k) {
+  // Time Complexity: O(1)
   var index = getIndexBelowMaxForKey(k, this._limit);
   // iterate through tuples at index of storage
   for (var i = 0; i < this._storage[index].length; i++) {
@@ -63,10 +66,6 @@ HashTable.prototype.remove = function(k) {
       break;
     }
   }
-  // if key matched k, splice that tuple out
-
-  // set the value at the index undefined
-  //this._storage[index] = undefined;
 };
 
 /*
