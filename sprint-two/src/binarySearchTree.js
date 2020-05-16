@@ -7,6 +7,7 @@ class BinarySearchTree {
   }
 
   insert(node) {
+    // Time complexity : O(log n)
     // compare the node with current node value
     if (this.value > node) {
       // if smaller, then check if .left is defined
@@ -30,6 +31,7 @@ class BinarySearchTree {
   }
 
   contains(node) {
+    // Time complexity : O(log n)
     var result = false;
     // check if node equals current node's value
     if (this.value === node) {
@@ -59,6 +61,7 @@ class BinarySearchTree {
   }
 
   depthFirstLog(cb) {
+    // Time complexity: O(n)
     // run call back on current node's value
     cb(this.value);
 
