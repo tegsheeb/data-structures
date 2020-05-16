@@ -41,6 +41,12 @@ var LimitedArray = function(limit) {
   return limitedArray;
 };
 
+
+var limitedArray = LimitedArray();
+
+limitedArray.set(3, 'hi');
+console.log(limitedArray.get(3)); // returns 'hi'
+
 // This is a "hashing function". You don't need to worry about it, just use it
 // to turn any string into an integer that is well-distributed between the
 // numbers 0 and `max`
@@ -53,6 +59,23 @@ var getIndexBelowMaxForKey = function(str, max) {
   }
   return hash % max;
 };
+
+var example1 = getIndexBelowMaxForKey('table', 8);
+console.log(example1);
+
+var example2 = getIndexBelowMaxForKey('tea', 8);
+console.log(example2);
+
+var example3 = getIndexBelowMaxForKey('hi', 8);
+console.log(example3);
+
+var example4 = getIndexBelowMaxForKey('bubbletea', 8);
+console.log(example4);
+var example5 = getIndexBelowMaxForKey('h', 8);
+console.log(example5);
+
+var example6 = getIndexBelowMaxForKey('teaful', 8);
+console.log(example2);
 
 /*
  * Complexity: What is the time complexity of the above functions?
