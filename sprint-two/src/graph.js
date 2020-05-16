@@ -16,7 +16,7 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(value) {
-  //
+  // Time complexity: O(1)
   // create a variable that generates an Object with properties node and egdes
   var dot = {
     node: value,
@@ -30,6 +30,7 @@ Graph.prototype.addNode = function(value) {
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  // Time complexity: O(n)
   // search within keys of this.storage to see if contains target
   var keys = Object.keys(this.storage);
   // if contains, return true
@@ -44,6 +45,7 @@ Graph.prototype.contains = function(node) {
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
+  // Time complexity: O(1)
   // iterate through edges array of node
   _.each(this.storage[node].edges, (element) => {
     this.removeEdge(node, element);
@@ -54,8 +56,10 @@ Graph.prototype.removeNode = function(node) {
 
 };
 
-// Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
+// Returns a boolean indicating whether two specified nodes are connected.
+// Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode) {
+  // Time Complexity: O(1)
   // search fromNode's edges to check whether it has toNode's value
   return _.contains(this.storage[fromNode].edges, toNode);
   // if yes, return true
@@ -64,6 +68,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
+  // Time Complexity: O(1)
   // reach into the storage at fromNode and insert an edge to toNode
   this.storage[fromNode].edges.push(toNode);
 
@@ -74,6 +79,7 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  // Time Complexity: O (1)
   // 1.declare a variable which points to edges of fromNode
   var edgesArr = this.storage[fromNode].edges;
   // 2.get the index of toNode in the edge array of fromNode
@@ -91,16 +97,13 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  // Time complexity: O(n)
   //declare a variable that will point to array of keys in this.storage
   var arrKeys = Object.keys(this.storage);
   // _.each on array of keys passing in call back as iterator
   _.each(arrKeys, function(ele) {
     cb(ele);
   });
-
-  // for (var node in this.storage) {
-  //   cb(node);
-  // }
 };
 
 /*
