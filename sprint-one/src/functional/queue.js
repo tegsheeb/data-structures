@@ -10,8 +10,7 @@ var Queue = function() {
     if (someInstance.size() === 0) {
       storage[0] = value;
     } else {
-      var lastElementKey = _.max(Object.keys(storage));
-      storage[lastElementKey + 1] = value;
+      storage[_.max(Object.keys(storage)) + 1] = value;
     }
   };
 
@@ -23,8 +22,7 @@ var Queue = function() {
   };
 
   someInstance.size = function() {
-    var keys = Object.keys(storage);
-    return keys.length;
+    return Object.keys(storage).length;
   };
 
   return someInstance;
